@@ -1,4 +1,4 @@
-// Updated Sidebar.jsx - Key changes to fix props and toggle functionality
+// src/layouts/Sidebar.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -24,7 +24,8 @@ import {
     FaMapMarkerAlt,
     FaListUl,
     FaList,
-    FaDoorOpen
+    FaDoorOpen,
+    FaBuilding
 } from 'react-icons/fa';
 
 const Sidebar = ({ collapsed, toggleSidebar }) => {
@@ -34,6 +35,7 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
     const [expanded, setExpanded] = useState({
         users: false,
         movies: false,
+        cinemas: false,
         theaters: false,
         rooms: false,
         sales: false,
@@ -138,6 +140,20 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
             ]
         },
         {
+            id: 'cinemas',
+            label: 'Cinema Management',
+            icon: <FaBuilding />,
+            hasSubmenu: true,
+            submenu: [
+                {
+                    id: 'all-cinemas',
+                    label: 'All Cinemas',
+                    icon: <FaBuilding size="0.85em" />,
+                    path: '/cinemas'
+                }
+            ]
+        },
+        {
             id: 'theaters',
             label: 'Theater Management',
             icon: <FaTheaterMasks />,
@@ -154,12 +170,6 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
                     label: 'Theater Locations',
                     icon: <FaMapMarkerAlt size="0.85em" />,
                     path: '/locations'
-                },
-                {
-                    id: 'movies-list',
-                    label: 'Movies by Theater',
-                    icon: <FaListUl size="0.85em" />,
-                    path: '/movies-by-theater'
                 }
             ]
         },
@@ -220,11 +230,11 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
             <div key={item.id} className="mb-1">
                 <button
                     className={`w-full flex items-center px-4 py-3 text-left transition-colors duration-200 
-            ${
-                isActive
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-            } ${collapsed ? 'justify-center' : ''}`}
+                ${
+                    isActive
+                        ? 'bg-blue-600 text-white'
+                        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                } ${collapsed ? 'justify-center' : ''}`}
                     onClick={() =>
                         handleMenuItemClick(item.id, item.hasSubmenu, item.path)
                     }
@@ -263,11 +273,11 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
                             <button
                                 key={subItem.id}
                                 className={`w-full flex items-center pl-12 pr-4 py-2 text-left text-sm transition-colors duration-200 
-                  ${
-                      activeSubItem === subItem.id
-                          ? 'bg-gray-700 text-white'
-                          : 'text-gray-400 hover:bg-gray-700 hover:text-white'
-                  }`}
+                        ${
+                            activeSubItem === subItem.id
+                                ? 'bg-gray-700 text-white'
+                                : 'text-gray-400 hover:bg-gray-700 hover:text-white'
+                        }`}
                                 onClick={() =>
                                     handleSubmenuItemClick(
                                         item.id,
@@ -291,7 +301,7 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
     return (
         <div
             className={`bg-gray-900 text-white h-full transition-all duration-300 ease-in-out 
-        ${collapsed ? 'w-16' : 'w-64'} overflow-y-auto overflow-x-hidden z-30`}
+                ${collapsed ? 'w-16' : 'w-64'} overflow-y-auto overflow-x-hidden z-30`}
         >
             {/* Logo & Brand */}
             <div

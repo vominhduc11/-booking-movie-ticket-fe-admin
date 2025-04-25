@@ -1,4 +1,3 @@
-// Updated Layout.jsx
 import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
@@ -41,8 +40,6 @@ const Container = () => {
             </div>
 
             <div className="flex flex-1 pt-16">
-                {' '}
-                {/* Add padding top to account for fixed header */}
                 {/* Sidebar - fixed on the left side */}
                 <div
                     className={`fixed left-0 top-16 h-[calc(100vh-4rem)] z-30 transition-all duration-300 ease-in-out
@@ -66,6 +63,7 @@ const Container = () => {
                     className={`flex-1 transition-all duration-300 ease-in-out
                     ${sidebarOpen ? 'md:ml-64' : 'md:ml-16'} ml-0 p-6`}
                 >
+                    {/* Use the context-based breadcrumb */}
                     <Outlet />
                 </div>
             </div>

@@ -1,19 +1,19 @@
 import { Navigate } from "react-router-dom";
-import Container from "../layouts/container";
 import NotFound from "../main/NotFound";
+import Container from "../layouts/Container";
 import AllUsersPage from "../pages/AllUsersPage";
 import DashboardPage from "../pages/DashboardPage";
 import RolesPermissionsPage from "../pages/RolesPermissionsPage";
-import AllMoviesPage from "../pages/AllMoviesPage";
 import MovieSchedulesPage from "../pages/MovieSchedulesPage";
-import AllTheatersPage from "../pages/AllTheatersPage";
 import TheaterLocationsPage from "../pages/TheaterLocationsPage";
 import MoviesByTheaterPage from "../pages/MoviesByTheaterPage";
-import AllRoomsPage from "../pages/AllRoomsPage";
 import ShowtimesPage from "../pages/ShowtimesPage";
-import AllPromotionsPage from "../pages/AllPromotionsPage";
-import DiscountsPage from "../pages/DiscountsPage";
 import SendNotificationsPage from "../pages/SendNotificationsPage";
+import DiscountsPage from "../pages/DiscountsPage";
+import AllPromotionsPage from "../pages/AllPromotionsPage";
+import AllRoomsPage from "../pages/AllRoomsPage";
+import AllMoviesPage from "../pages/AllMoviesPage";
+import AllTheatersPage from "../pages/AllTheatersPage";
 
 const routes = [
   {
