@@ -14,6 +14,7 @@ import AllPromotionsPage from "../pages/AllPromotionsPage";
 import AllRoomsPage from "../pages/AllRoomsPage";
 import AllMoviesPage from "../pages/AllMoviesPage";
 import AllTheatersPage from "../pages/AllTheatersPage";
+import CinemaManagementPage from "../pages/CinemaManagementPage";
 
 const routes = [
   {
@@ -79,6 +80,10 @@ const routes = [
       {
         path: "/notifications",
         element: <SendNotificationsPage />,
+      },
+      {
+        path: "/cinemas",
+        element: <CinemaManagementPage />,
       },
     ],
   },
